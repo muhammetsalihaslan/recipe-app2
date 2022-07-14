@@ -1,9 +1,9 @@
-import NavStyle from './Navbar.style';
+import Nav from './Navbar.style';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
-        <nav>
+        <Nav>
         <div>
             <i> {'<MSA/>'} </i>
             <span>Recipe</span>
@@ -12,8 +12,9 @@ const Navbar = () => {
             <Link to="/">Home</Link>
             <Link to="about">About</Link>
             <Link to="register">Register</Link>
+            <Link to="login">Logout</Link>
         </div>
-        </nav>
+        </Nav>
     )
 };
 
