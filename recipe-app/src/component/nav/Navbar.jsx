@@ -1,4 +1,4 @@
-import HomeStyle from './Home.style';
+import NavStyle from './Navbar.style';
 
 const Navbar = () => {
     return (
