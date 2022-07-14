@@ -1,9 +1,17 @@
-import LoginStyle from './Login.style';
+import LoginStyle, { FormContainer, Header, LoginContainer } from './Login.style';
 
 const Login = () => {
-    return (
-        <div>Login</div>
-    )
+    return <LoginContainer>
+            <FormContainer>
+          <Header>{"<MSA/>"}Recipe</Header>
+            </FormContainer>
+    
+        </LoginContainer>;
+
+        
+        
+        
+    
 }
 
 export default Login;
