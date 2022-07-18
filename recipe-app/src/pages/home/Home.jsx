@@ -1,7 +1,10 @@
-import HomeStyle from './Home.style';
+import  { HeaderText, HomeImg, ImgDiv } from './Home.style';
 import axios from 'axios';
 import { useState } from 'react';
 import Header from '../../component/header/Header';
+import Cards from '../../component/cards/Cards';
+import homeSvg from '../../assets/home.svg';
+
 
 
 const Home = () => {
@@ -12,9 +15,9 @@ const Home = () => {
   const mealType = ['Breakfast', 'Lunch', 'Dinner', 'Snack', 'Teatime'];
   const [query, setQuery] = useState("");
   const [selectedMeal, setSelectedMeal] = useState("")
-  const [recipes, setRecipes] = useState("");
+  const [recipes, setRecipes] = useState(null);
 
-  const url = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&mealType=${selectedMeal}`;
+   const url = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&mealType=${selectedMeal}`;
 
   const getData = async () => {
     if (query) {
@@ -43,6 +46,16 @@ const Home = () => {
          setSelectedMeal={setSelectedMeal}
          mealType={mealType}
          getData={getData}/>
+         {!recipes && (
+           <ImgDiv>
+             <HomeImg src={homeSvg}/>
+           </ImgDiv>
+         )}
+
+         {recipes?.length === 0 && (
+          <HeaderText>The Food Can not be found</HeaderText>
+         )}
+          {recipes?.length > 0 && <Cards recipes={recipes} />}
 
         </div>
     )
