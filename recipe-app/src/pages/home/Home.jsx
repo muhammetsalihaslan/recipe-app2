@@ -1,6 +1,6 @@
 import HomeStyle from './Home.style';
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Header from '../../component/header/Header';
 
 
@@ -17,24 +17,32 @@ const Home = () => {
   const url = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&mealType=${selectedMeal}`;
 
   const getData = async () => {
-    try {
-        const { data } = await axios.get(url);
-        setRecipes(data.hits);
-        
-    } catch (error) {
-        console.log(error)
+    if (query) {
+      
+      try {
+          const { data } = await axios.get(url);
+          setRecipes(data.hits);
+          
+      } catch (error) {
+          console.log(error)
+      }
+    } else {
+      alert('Please Enter a query')
     }
   };
 
-  useEffect(() => {
-    getData();
-  }, [])
+  console.log(recipes)
+
+  // useEffect(() => {
+  //   getData();
+  // }, [])
 
     return(
         <div>
          <Header setQuery={setQuery} 
          setSelectedMeal={setSelectedMeal}
-         mealType={mealType}/>
+         mealType={mealType}
+         getData={getData}/>
 
         </div>
     )
