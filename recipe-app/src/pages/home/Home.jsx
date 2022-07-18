@@ -8,17 +8,18 @@ const Home = () => {
    const APP_ID = "1c27efd7";
    const APP_KEY = 
  "8fa9e8034a26346589c7b932c5904f74";
-
-  const [query, setQuery] = useState("egg");
-  const [selectedMeal, setSelectedMeal] = useState("breakfast")
-  const [recipes, setRecipe] = useState("");
+  
+  const mealType = ['Breakfast', 'Lunch', 'Dinner', 'Snack', 'Teatime'];
+  const [query, setQuery] = useState("");
+  const [selectedMeal, setSelectedMeal] = useState("")
+  const [recipes, setRecipes] = useState("");
 
   const url = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&mealType=${selectedMeal}`;
 
   const getData = async () => {
     try {
         const { data } = await axios.get(url);
-        setRecipe(data.hits);
+        setRecipes(data.hits);
         
     } catch (error) {
         console.log(error)
@@ -31,7 +32,9 @@ const Home = () => {
 
     return(
         <div>
-         <Header setQuery={setQuery} setSelectedMeal={setSelectedMeal}/>
+         <Header setQuery={setQuery} 
+         setSelectedMeal={setSelectedMeal}
+         mealType={mealType}/>
 
         </div>
     )

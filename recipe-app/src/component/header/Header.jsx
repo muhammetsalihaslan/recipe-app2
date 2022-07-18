@@ -1,6 +1,11 @@
-import { Button, FoodInput, FormContainer, HeaderContainer, MainHeader, Select } from './Header.style';
+import { Button, 
+    FoodInput, 
+    FormContainer, 
+    HeaderContainer, 
+    MainHeader, 
+    Select } from './Header.style';
 
-const Header = ({setQuery, setSelectedMeal}) => {
+const Header = ({setQuery, setSelectedMeal, mealType}) => {
     return (
         <HeaderContainer>
         <MainHeader>
@@ -16,7 +21,9 @@ const Header = ({setQuery, setSelectedMeal}) => {
         name="mealType" 
         id="mealType"
         onChange={(e) => setSelectedMeal(e.target.value)}>
-
+            {mealType.map((meal, index) =>(
+                <option key={index} value={meal.toLowerCase()}>{meal}</option>
+            ))}
         </Select>
            
         </FormContainer>
