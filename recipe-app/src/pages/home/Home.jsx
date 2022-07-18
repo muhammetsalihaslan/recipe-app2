@@ -1,6 +1,7 @@
 import HomeStyle from './Home.style';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import Header from '../../component/header/Header';
 
 
 const Home = () => {
@@ -30,7 +31,7 @@ const Home = () => {
 
     return(
         <div>
-
+         <Header setQuery={setQuery} setSelectedMeal={setSelectedMeal}/>
 
         </div>
     )
