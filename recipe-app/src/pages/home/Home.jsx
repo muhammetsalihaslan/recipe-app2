@@ -8,9 +8,9 @@ import homeSvg from '../../assets/home.svg';
 
 
 const Home = () => {
-   const APP_ID = "b6e71300";
-   const APP_KEY = 
- "70857a50477dc964c1b97b8ee03738f1";
+   const APP_ID = process.env.REACT_APP_APP_ID
+   const APP_KEY = process.env.REACT_APP_APP_KEY;
+ 
   
   const mealType = ['Breakfast', 'Lunch', 'Dinner', 'Snack', 'Teatime'];
   const [query, setQuery] = useState("");
