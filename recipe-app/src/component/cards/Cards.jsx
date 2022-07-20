@@ -1,4 +1,4 @@
-
+import CardStyle from './Cards.style';
 
 const Cards = () => {
     return (

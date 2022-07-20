@@ -8,13 +8,13 @@ import homeSvg from '../../assets/home.svg';
 
 
 const Home = () => {
-   const APP_ID = "1c27efd7";
+   const APP_ID = "b6e71300";
    const APP_KEY = 
- "8fa9e8034a26346589c7b932c5904f74";
+ "70857a50477dc964c1b97b8ee03738f1";
   
   const mealType = ['Breakfast', 'Lunch', 'Dinner', 'Snack', 'Teatime'];
   const [query, setQuery] = useState("");
-  const [selectedMeal, setSelectedMeal] = useState("")
+  const [selectedMeal, setSelectedMeal] = useState(mealType[0])
   const [recipes, setRecipes] = useState(null);
 
    const url = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&mealType=${selectedMeal}`;
@@ -55,7 +55,8 @@ const Home = () => {
          {recipes?.length === 0 && (
           <HeaderText>The Food Can not be found</HeaderText>
          )}
-          {recipes?.length > 0 && <Cards recipes={recipes} />}
+         {recipes?.length > 0 && <Cards recipes={recipes}/>}
+          
 
         </div>
     )
