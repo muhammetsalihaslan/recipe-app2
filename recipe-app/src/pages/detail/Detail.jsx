@@ -1,4 +1,4 @@
-import { DetailContainer, DetailPart, HeaderContainer, OtherPart } from "./Detail.style";
+import { DetailContainer, DetailPart, HeaderContainer, ImgContainer, IngContainer, OtherPart } from "./Detail.style";
 import dietSvg from '../../assets/diet.svg';
 import { useLocation } from 'react-router-dom'
 
@@ -45,6 +45,18 @@ const Detail = () => {
           ))}
 
         </OtherPart>
+        <ImgContainer>
+        <img src={state.image} alt={state.label} />
+        </ImgContainer>
+        <IngContainer>
+            {state.ingredientLines.map((line, index) => (
+               <div>
+                <p>
+                    {index + 1} - {line}
+                </p>
+               </div> 
+            ))}
+        </IngContainer>
         </DetailPart>
     </DetailContainer>
         
