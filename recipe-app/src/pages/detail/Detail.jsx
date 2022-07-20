@@ -7,7 +7,7 @@ import { useLocation } from 'react-router-dom'
 
 const Detail = () => {
     const { state } = useLocation();
-    console.log(state)
+    // console.log(state)
     return <DetailContainer>
         <HeaderContainer>
          <h1>{state.label}</h1>

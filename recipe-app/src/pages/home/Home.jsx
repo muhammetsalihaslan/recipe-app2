@@ -34,7 +34,7 @@ const Home = () => {
     }
   };
 
-  console.log(recipes)
+  // console.log(recipes)
 
   // useEffect(() => {
   //   getData();
