@@ -50,7 +50,7 @@ const Detail = () => {
         </ImgContainer>
         <IngContainer>
             {state.ingredientLines.map((line, index) => (
-               <div>
+               <div key={index}>
                 <p>
                     {index + 1} - {line}
                 </p>
